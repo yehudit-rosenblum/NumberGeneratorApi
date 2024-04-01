@@ -1,6 +1,5 @@
 ﻿namespace NumberGeneratorApi.Constants
 {
-    //מיועד בשביל לשמור את המספר קומבינציה
     public static class SessionKeys
     {
         public static readonly string N = "N";
