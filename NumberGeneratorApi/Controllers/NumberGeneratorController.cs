@@ -60,14 +60,13 @@ namespace NumberGeneratorApi.Controllers
         [HttpGet(Name = "GetAllAPI")]
         public ActionResult<long> GetAllAPI(int numOfRows)
         {
-
             var n =  _sessionHandler.Get<int>(SessionKeys.N);
             var current =  _sessionHandler.Get<long>(SessionKeys.CurrentCombination);
             var total =  _sessionHandler.Get<long>(SessionKeys.Total);
-            var untill = current + numOfRows ;
+            var untill = current + numOfRows -1;
             var till = untill > total ? total : untill;
             _sessionHandler.Set<long>(SessionKeys.CurrentCombination, till +1);
-            return Ok(_numberGeneratorService.GetCombinationsRange(n, current, till-1));
+            return Ok(_numberGeneratorService.GetCombinationsRange(n, current, till));
         }
     }
 }
